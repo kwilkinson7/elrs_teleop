@@ -7,23 +7,11 @@
 - Decodes ELRS RC signals into ROS 2 messages
 - Publishes velocity commands to `/cmd_vel`
 - Supports motion mode switching (e.g., manual, explore, goto)
-- Sends telemetry feedback to the transmitter (battery voltage, CPU usage, coordinates, etc.)
-- Supports custom LUA display for real-time robot status
-
-## Telemetry
-
-The system optionally sends telemetry data back to the ELRS transmitter, enabling real-time monitoring through a custom LUA script. Supported telemetry values include:
-
-- Battery voltage
-- CPU usage percentage
-- Robot coordinates (x, y)
-- Current motion mode
-- Other custom values (e.g., heading, velocity)
 
 ## Topics
 
 **Subscribed:**
-- `/rc_channels` — Receives raw channel data from ELRS receiver
+- `/battery_voltage` 
 
 **Published:**
 - `/cmd_vel` — Velocity commands for the robot
@@ -34,3 +22,8 @@ The system optionally sends telemetry data back to the ELRS transmitter, enablin
 ```bash
 ros2 launch elrs_teleop elrs_teleop_launch.py
 ```
+## Future Improvements
+
+- Improve current motion mode
+- Sends telemetry feedback to the transmitter (battery voltage, CPU usage, coordinates, heading, velocity)
+- Supports custom LUA display for real-time robot status
